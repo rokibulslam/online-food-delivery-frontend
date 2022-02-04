@@ -2,6 +2,7 @@ import { Button, Container, MenuItem, TextField } from '@mui/material';
 import { Box } from '@mui/system';
 import axios from 'axios';
 import React, { useState } from 'react';
+import Swal from "sweetalert2";
 
 // Food Category 
 const currencies = [
@@ -42,9 +43,14 @@ const AddProduct = () => {
 
     //   Send Product to Database 
         axios.post("http://localhost:5000/foods", productDetails).then((res) => {
-          if (res.data.inseted) {
-            alert("New Product Added");
-            window.location.reload();
+          if (res.data.insertedId) {
+            Swal.fire({
+              position: "center",
+              icon: "success",
+              title: `Food Item Inserted Successfully`,
+              showConfirmButton: false,
+              timer: 2000,
+            });
             setProductDetails({});
           }
         });
@@ -94,6 +100,15 @@ const AddProduct = () => {
               onChange={handleOnChange}
               variant="standard"
             />
+            <TextField
+              sx={{ width: "75%", m: 1 }}
+              id="standard-basic"
+              label="Rating"
+              type="text"
+              name="Rating"
+              onChange={handleOnChange}
+              variant="standard"
+            />
 
             <TextField
               sx={{ width: "75%", m: 1 }}
@@ -111,8 +126,7 @@ const AddProduct = () => {
                 </MenuItem>
               ))}
             </TextField>
-                    <Button
-                    
+            <Button
               sx={{ width: "75%", m: 1 }}
               type="submit"
               variant="contained"
