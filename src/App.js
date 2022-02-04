@@ -4,6 +4,7 @@ import AuthProvider from "./Context/AuthProvider";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Login from "./Pages/LoginRegister/Login/Login";
 import Register from "./Pages/LoginRegister/Register/Register";
+import Purchase from "./Pages/Purchase/Purchase";
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
             <Route path="/home" element={<Home />}></Route>
             <Route path="/login" element={<Login />}></Route>
             <Route path="/register" element={<Register />}></Route>
+            <Route path="/home/purchase/:id" element={<Purchase />}></Route>
           </Routes>
         </Router>
       </AuthProvider>
