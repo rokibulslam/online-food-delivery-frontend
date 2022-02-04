@@ -45,18 +45,25 @@ const Navigation = () => {
               </NavLink>
             </Nav>
             {user.email ? (
-              <div>
-                <p className="text-white text-decoration-none me-3">
+              <div className="d-flex justify-content-center align-items-center">
+                <p className="text-white text-decoration-none me-3 mb-lg-0">
                   {user.displayName}
                 </p>
-                <Button onClick={logout}>Logout</Button>
+                <p
+                  className="logout-button text-white text-decoration-none me-3 mb-lg-0"
+                  onClick={logout}
+                >
+                  Logout
+                </p>
               </div>
             ) : (
               <NavLink
                 to="/login"
                 className="nav-text-color text-decoration-none me-3"
               >
-                <Button>Login</Button>
+                <p className="logout-button text-white text-decoration-none me-3 mb-lg-0">
+                  Login
+                </p>
               </NavLink>
             )}
           </Navbar.Collapse>
