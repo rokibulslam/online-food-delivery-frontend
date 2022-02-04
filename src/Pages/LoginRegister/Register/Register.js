@@ -1,7 +1,7 @@
-import { Alert, Button, CircularProgress, Container, Grid, TextField, Typography } from '@mui/material';
+import { Alert, Button, CircularProgress, Container, TextField } from '@mui/material';
 import React, { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
-import useAuth from '../../Hooks/useAuth';
+import useAuth from '../../../Hooks/useAuth';
 import './Register.css'
 
 const Register = () => {

@@ -1,11 +1,10 @@
-import logo from "./logo.svg";
 import "./App.css";
-import UserDashboard from "./Pages/Dashboard/UserDashboard/UserDashboard";
 import Home from "./Pages/Home/Home/Home";
 import AuthProvider from "./Context/AuthProvider";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Login from "./LoginRegister/Login/Login";
-import Register from "./LoginRegister/Register/Register";
+import Login from "./Pages/LoginRegister/Login/Login";
+import Register from "./Pages/LoginRegister/Register/Register";
+
 
 function App() {
   return (
