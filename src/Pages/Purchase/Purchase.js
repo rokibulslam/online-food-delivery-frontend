@@ -46,7 +46,7 @@ const Purchase = () => {
 
   const date = new Date();
   const currentDate = date.toLocaleDateString();
-
+// Add Purchased data to database 
   const onSubmitOrder = (e) => {
     const order = {
       ...orderData,

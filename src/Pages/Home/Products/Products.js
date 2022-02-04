@@ -4,13 +4,12 @@ import { NavLink } from 'react-router-dom';
 
 const Products = (props) => {
     const { _id, Name, Price, Description, Image } = props.product;
-    console.log(props.product);
     return (
       <Grid
         sx={{ display: "flex", justifyContent: "center" }}
         item
         xs={12}
-        md={4}
+        md={3}
       >
         <Card
           sx={{

@@ -38,10 +38,10 @@ const Navigation = () => {
                 Blog
               </NavLink>
               <NavLink
-                to="/aboutMe"
+                to="/explore"
                 className="nav-text-color text-decoration-none me-3"
               >
-                Add Product
+                Explore 
               </NavLink>
             </Nav>
             {user.email ? (
