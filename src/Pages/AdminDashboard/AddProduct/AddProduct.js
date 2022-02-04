@@ -1,5 +1,6 @@
 import { Button, Container, MenuItem, TextField } from '@mui/material';
 import { Box } from '@mui/system';
+import axios from 'axios';
 import React, { useState } from 'react';
 
 // Food Category 
@@ -38,7 +39,15 @@ const AddProduct = () => {
     
     const handleSubmit = (e) => {
         console.log(productDetails);
-    //   Send to Database 
+
+    //   Send Product to Database 
+        axios.post("http://localhost:5000/foods", productDetails).then((res) => {
+          if (res.data.inseted) {
+            alert("New Product Added");
+            window.location.reload();
+            setProductDetails({});
+          }
+        });
         e.preventDefault();
     };
     return (
