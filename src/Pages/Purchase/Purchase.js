@@ -1,6 +1,7 @@
 import { Button, Card, CardActionArea, CardActions, CardContent, CardMedia, Container, Grid, TextField, Typography } from '@mui/material';
 import useId from '@mui/material/utils/useId';
 import { Box } from '@mui/system';
+import axios from 'axios';
 import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
@@ -30,6 +31,7 @@ const Purchase = () => {
         newOrderData[field] = value;
         setOrderData(newOrderData);
     };
+
     const date = new Date();
     const currentDate = date.toLocaleDateString();
 
@@ -45,6 +47,10 @@ const Purchase = () => {
         }
     }
         // console.log(order)
+    // send order data to database
+    
+        axios.post('')
+    
         
         console.log(product)
         return (
