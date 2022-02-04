@@ -7,7 +7,6 @@ import "./Navigation.css";
 
 const Navigation = () => {
   const { user, logout } = useAuth();
-  console.log(user)
   return (
     <div>
       <Navbar

@@ -24,7 +24,6 @@ import Swal from "sweetalert2";
 const Purchase = () => {
   const { id } = useParams();
   const { user } = useAuth();
-  console.log(id);
   const [product, setProduct] = useState({});
   const [orderData, setOrderData] = useState({});
 
@@ -57,7 +56,6 @@ const Purchase = () => {
       customerName: user.displayName,
       email: user?.email,
     };
-    console.log(order);
     axios.post("http://localhost:5000/orders", order).then((res) => {
       if (res.data.insertedId) {
         Swal.fire({

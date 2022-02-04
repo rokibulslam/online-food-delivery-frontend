@@ -39,8 +39,6 @@ const AddProduct = () => {
     }
     
     const handleSubmit = (e) => {
-        console.log(productDetails);
-
     //   Send Product to Database 
         axios.post("http://localhost:5000/foods", productDetails).then((res) => {
           if (res.data.insertedId) {
