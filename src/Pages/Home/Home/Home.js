@@ -1,4 +1,5 @@
 import React from 'react';
+import AddProduct from '../../AdminDashboard/AddProduct/AddProduct';
 import Login from '../../LoginRegister/Login/Login';
 import Register from '../../LoginRegister/Register/Register';
 import Banner from '../Banner/Banner';
@@ -11,6 +12,7 @@ const Home = () => {
             <Banner></Banner>
             <Login></Login>
             <Register></Register>
+            <AddProduct></AddProduct>
         </div>
     );
 };
