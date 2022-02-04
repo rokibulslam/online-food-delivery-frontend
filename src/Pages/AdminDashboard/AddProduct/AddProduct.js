@@ -24,12 +24,20 @@ const currencies = [
 
 
 const AddProduct = () => {
-    const [category, setCategory] = useState("Pizza");
+    const [category, setCategory] = useState("");
+    const [productDetails, setProductDetails] = useState({});
+    const handleOnChange = (e) => {
+        setCategory(e.target.value)
+       const field = e.target.name;
+       const value = e.target.value;
+        const newProductDetails = { ...productDetails };
+        newProductDetails[field] = value;
+        setProductDetails(newProductDetails);
 
-    const handleOnBlur = (e) => {
-        setCategory(e.target.value);
     }
+    
     const handleSubmit = (e) => {
+        console.log(productDetails);
     //   Send to Database 
         e.preventDefault();
     };
@@ -45,8 +53,8 @@ const AddProduct = () => {
               sx={{ width: "75%", m: 1 }}
               id="standard-basic"
               label="Product Name"
-              name="name"
-              onChange={handleOnBlur}
+              name="Name"
+              onChange={handleOnChange}
               variant="standard"
             />
 
@@ -56,7 +64,7 @@ const AddProduct = () => {
               label="Price"
               type="number"
               name="Price"
-              onChange={handleOnBlur}
+              onChange={handleOnChange}
               variant="standard"
             />
             <TextField
@@ -65,7 +73,7 @@ const AddProduct = () => {
               label="Image URL"
               type="text"
               name="Image"
-              onChange={handleOnBlur}
+              onChange={handleOnChange}
               variant="standard"
             />
             <TextField
@@ -74,7 +82,7 @@ const AddProduct = () => {
               label="Description"
               type="text"
               name="Description"
-              onChange={handleOnBlur}
+              onChange={handleOnChange}
               variant="standard"
             />
 
@@ -86,7 +94,7 @@ const AddProduct = () => {
               name="Category"
               label="Category"
               value={category}
-              onChange={handleOnBlur}
+              onChange={handleOnChange}
             >
               {currencies.map((option) => (
                 <MenuItem key={option.value} value={option.value}>
@@ -94,11 +102,15 @@ const AddProduct = () => {
                 </MenuItem>
               ))}
             </TextField>
+                    <Button
+                    
+              sx={{ width: "75%", m: 1 }}
+              type="submit"
+              variant="contained"
+            >
+              Add Food
+            </Button>
           </form>
-
-          <Button sx={{ width: "75%", m: 1 }} type="submit" variant="contained">
-            Add Food
-          </Button>
         </Container>
       </Container>
     );
