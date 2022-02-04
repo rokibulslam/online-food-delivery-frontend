@@ -7,7 +7,7 @@ import "./Navigation.css";
 
 const Navigation = () => {
   const { user, logout } = useAuth();
-
+  console.log(user)
   return (
     <div>
       <Navbar
@@ -44,12 +44,21 @@ const Navigation = () => {
                 About Me
               </NavLink>
             </Nav>
-            <NavLink
-              to="/login"
-              className="nav-text-color text-decoration-none me-3"
-            >
-              Login
-            </NavLink>
+            {user.email ? (
+              <div>
+                <p className="text-white text-decoration-none me-3">
+                  {user.displayName}
+                </p>
+                <Button onClick={logout}>Logout</Button>
+              </div>
+            ) : (
+              <NavLink
+                to="/login"
+                className="nav-text-color text-decoration-none me-3"
+              >
+                <Button>Login</Button>
+              </NavLink>
+            )}
           </Navbar.Collapse>
         </Container>
       </Navbar>
