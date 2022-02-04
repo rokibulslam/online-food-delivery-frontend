@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import initializeFirebase from "../Firebase/firebase.init"
-import { getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithPopup, signOut } from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 
 
 
@@ -23,7 +23,6 @@ const useFirebase = () => {
     signInWithPopup(auth, googleProvider)
       .then((result) => {
         const user = result.user;
-        // saveUser(user.email, user.displayName, "PUT");
         setAuthError("");
         const destination = location?.state?.from || "/";
         navigate(destination);
@@ -33,7 +32,28 @@ const useFirebase = () => {
       })
       .finally(() => setIsLoading(false));
   };
-
+  // Register New User 
+  const registerUser = (email, password, name, navigate) => {
+    setIsLoading(true);
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        setAuthError("");
+        const newUser = { email, displayName: name };
+        setUser(newUser);
+        // send name to firebase after creation
+        updateProfile(auth.currentUser, {
+          displayName: name,
+        })
+          .then(() => {})
+          .catch((error) => {});
+        navigate("/");
+      })
+      .catch((error) => {
+        setAuthError(error.message);
+        console.log(error);
+      })
+      .finally(() => setIsLoading(false));
+  };
 
   // Observe User's State
   useEffect(() => {
@@ -66,7 +86,8 @@ const useFirebase = () => {
     isLoading,
     signInWithGoogle,
     logout,
-    authError
+    authError,
+    registerUser
   };
 }
 export default useFirebase

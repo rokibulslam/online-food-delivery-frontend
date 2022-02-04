@@ -1,8 +1,9 @@
 
+import { Button } from '@mui/material';
 import React from 'react';
-import { Button } from 'react-bootstrap';
+
 import { useLocation, useNavigate } from 'react-router-dom';
-import useAuth from '../Hooks/useAuth';
+import useAuth from '../../Hooks/useAuth';
 
 const Login = () => {
   const { user, signInWithGoogle, isLoading, authError } = useAuth();
@@ -15,7 +16,15 @@ const Login = () => {
   }
   return (
     <div>
-      <Button onClick={handleGoogleSign}>Sign In With Google</Button>
+      <Button
+        sx={{ width: "25%", m: 1 }}
+        onClick={handleGoogleSign}
+        type="submit"
+        variant="contained"
+      >
+        Sign In With Google
+      </Button>
+      
     </div>
   );
 };
