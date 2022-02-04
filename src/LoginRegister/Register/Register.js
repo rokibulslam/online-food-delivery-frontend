@@ -17,7 +17,7 @@ const Register = () => {
       finalRegisterData[nameField] = value;
       setUserRegisterData(finalRegisterData);
     };
-    const handleLoginSubmit = (e) => {
+    const handleRegisterSubmit = (e) => {
       if (userRegisterData.password !== userRegisterData.password2) {
         alert("Your password did not match");
         return;
@@ -37,7 +37,7 @@ const Register = () => {
 
           {/* <Grid item sx={{ mt: 8 }} xs={12} md={6}> */}
           {!isLoading && (
-            <form onSubmit={handleLoginSubmit}>
+            <form onSubmit={handleRegisterSubmit}>
               <TextField
                 sx={{ width: "75%", m: 1 }}
                 id="standard-basic"
