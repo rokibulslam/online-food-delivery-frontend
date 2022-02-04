@@ -13,7 +13,7 @@ const Navigation = () => {
       <Navbar
         className="nav-bg"
         collapseOnSelect
-        fixed="top"
+        sticky="top"
         expand="lg"
         variant="dark"
       >
@@ -41,7 +41,7 @@ const Navigation = () => {
                 to="/aboutMe"
                 className="nav-text-color text-decoration-none me-3"
               >
-                About Me
+                Add Product
               </NavLink>
             </Nav>
             {user.email ? (

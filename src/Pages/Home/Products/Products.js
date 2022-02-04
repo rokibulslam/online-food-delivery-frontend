@@ -3,7 +3,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 const Products = (props) => {
-    const { _id, Name, Price, Description, Image, Rating } = props.product;
+    const { _id, Name, Price, Description, Image } = props.product;
     console.log(props.product);
     return (
       <Grid

@@ -17,7 +17,7 @@ const Home = () => {
             <Register></Register>
             <AddProduct></AddProduct>
             <ProductFetch></ProductFetch>
-            <Purchase></Purchase>
+            
         </div>
     );
 };
