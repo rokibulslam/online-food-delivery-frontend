@@ -9,7 +9,8 @@ import PrivateRoute from "./Pages/LoginRegister/PrivateRoute/PrivateRoute";
 import AllFoods from "./Pages/AllFoods/AllFoods";
 import Dashboard from "./Pages/Dasboard/Dashboard/Dashboard";
 import AddProduct from "./Pages/Dasboard/AddProduct/AddProduct";
-
+import ManageOrder from "./Pages/Dasboard/ManageOrder/ManageOrder";
+import MyOrder from "./Pages/Dasboard/MyOrder/MyOrder";
 
 function App() {
   return (
@@ -39,7 +40,12 @@ function App() {
                 </PrivateRoute>
               }
             >
-              <Route path="/dashboard/addProduct" element={<AddProduct />}></Route>
+              <Route
+                path="/dashboard/addProduct"
+                element={<AddProduct />}
+              ></Route>
+              <Route path="/dashboard/orders" element={<ManageOrder />}></Route>
+              <Route path="/dashboard/myOrders" element={<MyOrder />}></Route>
             </Route>
           </Routes>
         </Router>

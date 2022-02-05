@@ -42,6 +42,13 @@ function Dashboard(props) {
           <ListItemText primary="admin" />
         </ListItem>
         <ListItem>
+          <NavLink style={{ textDecoration: "none" }} to="/">
+            <Button variant="text" style={{ color: "inherit" }}>
+              Home
+            </Button>
+          </NavLink>
+        </ListItem>
+        <ListItem>
           <NavLink
             style={{ textDecoration: "none" }}
             to="/dashboard/addProduct"
@@ -52,12 +59,16 @@ function Dashboard(props) {
           </NavLink>
         </ListItem>
         <ListItem>
-          <NavLink
-            style={{ textDecoration: "none" }}
-            to="/dashboard/manageProduct"
-          >
+          <NavLink style={{ textDecoration: "none" }} to="/dashboard/orders">
             <Button variant="text" style={{ color: "inherit" }}>
-              Manage Product
+              Manage Order
+            </Button>
+          </NavLink>
+        </ListItem>
+        <ListItem>
+          <NavLink style={{ textDecoration: "none" }} to="/dashboard/myOrders">
+            <Button variant="text" style={{ color: "inherit" }}>
+              My Order
             </Button>
           </NavLink>
         </ListItem>
