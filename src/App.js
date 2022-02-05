@@ -7,6 +7,7 @@ import Register from "./Pages/LoginRegister/Register/Register";
 import Purchase from "./Pages/Purchase/Purchase";
 import PrivateRoute from "./Pages/LoginRegister/PrivateRoute/PrivateRoute";
 import AllFoods from "./Pages/AllFoods/AllFoods";
+import AdminPanel from "./Pages/AdminDashboard/AdminPanel/AdminPanel";
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
             <Route path="/login" element={<Login />}></Route>
             <Route path="/register" element={<Register />}></Route>
             <Route path="/explore" element={<AllFoods />}></Route>
+            <Route path="/adminPanel" element={<AdminPanel />}></Route>
             <Route
               path="/home/purchase/:id"
               element={
