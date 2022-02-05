@@ -7,8 +7,8 @@ const Banner = () => {
   return (
     <div className="py-5 banner">
       <div className="container">
-        <div className="row">
-          <div className="col-md-6 pt-5 col-sm-12 justify-content-between align-items-center text-start">
+        <div className="row justify-content-center align-items-center">
+          <div className="col-md-6 pt-5 col-sm-12  text-start">
             <h4 className="h1-tag text-start">
               <i>Best Choice</i>{" "}
             </h4>

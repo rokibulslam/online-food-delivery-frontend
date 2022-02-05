@@ -84,13 +84,13 @@ const Purchase = () => {
         </Typography>
         <Container>
           <Typography
-            sx={{ textAlign: "start", mt: 5, color: "error.main" }}
+            sx={{ textAlign: "start", mt: 5, color: "info.main" }}
             variant="h7"
             component="div"
             gutterBottom
           >
-            User Name : {user.displayName} <br />
-            User Email : {user.email}
+            {user.displayName} <br />
+            {user.email}
           </Typography>
         </Container>
         <Container>
