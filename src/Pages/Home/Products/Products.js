@@ -1,54 +1,22 @@
-import { Button, Card, CardActionArea, CardActions, CardContent, CardMedia, Grid, Typography } from '@mui/material';
 import React from 'react';
+import { Card, ListGroup, ListGroupItem } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
-
+import './Product.css'
 const Products = (props) => {
     const { _id, Name, Price, Description, Image } = props.product;
     return (
-      <Grid
-        sx={{ display: "flex", justifyContent: "center" }}
-        item
-        xs={12}
-        md={3}
-      >
-        <Card
-          sx={{
-            maxWidth: 500,
-            textAlign: "start",
-            display: "flex",
-            justifyContent: "space-between",
-            flexDirection: "column",
-          }}
-        >
-          <CardActionArea>
-            <CardMedia
-              component="img"
-              height="140"
-              image={Image}
-              alt="green iguana"
-            />
-            <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
-                {Name}
-              </Typography>
-              <Typography gutterBottom variant="h5" component="div">
-                Price:${Price}
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-                {Description.slice(0, 100)}
-              </Typography>
-            </CardContent>
-          </CardActionArea>
-          <CardActions>
-            <NavLink
-              style={{ textDecoration: "none" }}
-              to={`/home/purchase/${_id}`}
-            >
-              <Button variant="contained">Purchase</Button>
+      <div className="col-md-3 m-5">
+        <Card className='card-bg' style={{ width: "18rem" }}>
+          <Card.Img variant="top" src={Image} />
+          <Card.Body>
+            <Card.Title>{Name}</Card.Title>
+            <Card.Title className='banner-text'>${Price}</Card.Title>
+            <NavLink className="card-btn fs-5" to={`/home/purchase/${_id}`}>
+              ADD TO CART
             </NavLink>
-          </CardActions>
+          </Card.Body>
         </Card>
-      </Grid>
+      </div>
     );
 };
 

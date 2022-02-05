@@ -16,17 +16,21 @@ const ProductFetch = () => {
   }, []);
   
   return (
-    <Container sx={{ mt: 5 }}>
-      <h1>Lets Order</h1>
-      {isLoading && <CircularProgress />}
-      <Box sx={{ flexGrow: 1, mt: 5, mb: 5 }}>
-        <Grid container spacing={4}>
-          {products.slice(0, 8)?.map((product) => (
-            <Products key={product._id} product={product}></Products>
-          ))}
-        </Grid>
-      </Box>
-    </Container>
+    <div className="my-5">
+      <div className="container">
+        <h4 className="banner-text ">
+          <i>Special For You</i>
+        </h4>
+        <h1>Popular Dishes</h1>
+        <div>
+          <div className="row">
+            {products.slice(0, 6)?.map((product) => (
+              <Products key={product._id} product={product}></Products>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
   );
 };
 

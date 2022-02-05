@@ -1,10 +1,5 @@
 .banner{
-    background-image: url('../../../../Images/cover.jpg');
-    background-position: center center;
-    background-size: cover;
-    
-    background-repeat: no-repeat;
-    overflow: hidden;
+    background-color: rgb(182, 0, 31);
     
 }
 
@@ -23,6 +18,13 @@
     border: 0px;
     border-radius: 10px;
     padding: 10px 40px 10px 40px;
-   
-
+}
+.order-now-btn{
+    background-color: black;
+    color: white;
+    border: 0px;
+    padding: 10px;
+}
+.banner-text{
+    color: #FFA609;
 }
