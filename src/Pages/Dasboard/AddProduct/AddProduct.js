@@ -40,7 +40,8 @@ const AddProduct = () => {
     
     const handleSubmit = (e) => {
     //   Send Product to Database 
-        axios.post("http://localhost:5000/foods", productDetails).then((res) => {
+      axios.post("http://localhost:5000/foods", productDetails)
+        .then((res) => {
           if (res.data.insertedId) {
             Swal.fire({
               position: "center",
@@ -50,6 +51,7 @@ const AddProduct = () => {
               timer: 2000,
             });
             setProductDetails({});
+            window.location.reload()
           }
         });
         e.preventDefault();

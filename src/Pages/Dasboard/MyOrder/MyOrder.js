@@ -15,7 +15,7 @@ const MyOrder = () => {
         fetch(`http://localhost:5000/orders/${user?.email}`)
         .then(res=> res.json())
         .then(data=> setOrders(data))
-    }, [])
+    }, [cancel])
 
     // Delete Ordered Food Item by ID
     const handleDelete = (id) => {

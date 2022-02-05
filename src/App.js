@@ -11,6 +11,7 @@ import Dashboard from "./Pages/Dasboard/Dashboard/Dashboard";
 import AddProduct from "./Pages/Dasboard/AddProduct/AddProduct";
 import ManageOrder from "./Pages/Dasboard/ManageOrder/ManageOrder";
 import MyOrder from "./Pages/Dasboard/MyOrder/MyOrder";
+import Contact from "./Pages/Contact/Contact";
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
             <Route path="/login" element={<Login />}></Route>
             <Route path="/register" element={<Register />}></Route>
             <Route path="/explore" element={<AllFoods />}></Route>
+            <Route path="/contact" element={<Contact />}></Route>
             <Route
               path="/home/purchase/:id"
               element={

@@ -25,7 +25,7 @@ function Dashboard(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
-  const {user } = useAuth();
+  const {user, logout } = useAuth();
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
@@ -71,6 +71,13 @@ function Dashboard(props) {
               My Order
             </Button>
           </NavLink>
+        </ListItem>
+        <ListItem>
+          <Button
+            onClick={logout}
+            variant="text"
+            sx={{ color: "text.primary" }}
+          >Logout</Button>
         </ListItem>
       </List>
     </Box>

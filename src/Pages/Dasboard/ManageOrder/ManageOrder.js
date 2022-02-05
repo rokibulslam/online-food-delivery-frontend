@@ -11,7 +11,7 @@ const ManageOrder = () => {
         fetch("http://localhost:5000/orders")
             .then(res => res.json())
         .then(data => setOrders(data))
-    }, [])
+    }, [update])
     console.log(orders)
     const handlePending = (id, text) => {
       axios

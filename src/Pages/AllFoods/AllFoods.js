@@ -1,9 +1,9 @@
-import { CircularProgress, Container, Grid } from '@mui/material';
-import { Box } from '@mui/system';
+
 import React, { useEffect, useState } from 'react';
 import useAuth from '../../Hooks/useAuth';
+import Navigation from '../Home/Navigation/Navigation';
 import Products from '../Home/Products/Products';
-
+import Footer from '../Home/Footer/Footer'
 const AllFoods = () => {
     const [products, setProducts] = useState([]);
     const { isLoading, setIsLoading } = useAuth();
@@ -13,17 +13,25 @@ const AllFoods = () => {
         .then((data) => setProducts(data));
     }, []);
     return (
-      <Container sx={{ mt: 5 }}>
-        <h1>Lets Order</h1>
-        {isLoading && <CircularProgress />}
-        <Box sx={{ flexGrow: 1, mt: 5, mb: 5 }}>
-          <Grid container spacing={4}>
-            {products?.map((product) => (
-              <Products key={product._id} product={product}></Products>
-            ))}
-          </Grid>
-        </Box>
-      </Container>
+      <div>
+        <Navigation></Navigation>
+        <div className="my-5">
+          <div className="container">
+            <h4 className="banner-text ">
+              <i>Special For You</i>
+            </h4>
+            <h1>Popular Dishes</h1>
+            <div className="py-5">
+              <div className="row g-5">
+                {products.slice(0, 8)?.map((product) => (
+                  <Products key={product._id} product={product}></Products>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+        <Footer></Footer>
+      </div>
     );
 };
 

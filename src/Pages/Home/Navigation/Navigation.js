@@ -40,7 +40,13 @@ const Navigation = () => {
                 to="/explore"
                 className="nav-text-color text-decoration-none me-3"
               >
-                Explore 
+                Explore
+              </NavLink>
+              <NavLink
+                to="/contact"
+                className="text-decoration-none me-3 nav-text-color"
+              >
+                Contact
               </NavLink>
             </Nav>
             {user.email ? (
