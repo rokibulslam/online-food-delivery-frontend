@@ -75,7 +75,7 @@ const Purchase = () => {
       <Navigation></Navigation>
       <Box>
         <Typography
-          sx={{ textAlign: "center", pt: 5, mt: 5 }}
+          sx={{ textAlign: "center", mt: 5, color: "warning.main" }}
           variant="h2"
           component="div"
           gutterBottom
@@ -128,14 +128,6 @@ const Purchase = () => {
             <Grid item xs={12} md={6}>
               <Box>
                 <Container>
-                  <Typography
-                    sx={{ mt: 5 }}
-                    variant="h2"
-                    component="div"
-                    gutterBottom
-                  >
-                    Add A Product
-                  </Typography>
                   <form onSubmit={onSubmitOrder}>
                     <TextField
                       // required
@@ -204,9 +196,14 @@ const Purchase = () => {
                     />
 
                     <Button
-                      sx={{ width: "90%", m: 1 }}
+                      sx={{
+                        width: "90%",
+                        m: 1,
+                        color: "warning.main",
+                        border: 1,
+                      }}
                       type="submit"
-                      variant="contained"
+                      variant="Outlined"
                     >
                       Add Cart
                     </Button>
