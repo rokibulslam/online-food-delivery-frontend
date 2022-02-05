@@ -66,9 +66,7 @@ const Login = () => {
               >
                 Login
               </Button>
-              <NavLink style={{ textDecoration: "none" }} to="/login">
-                <Button variant="text">Already Registered? Please Login</Button>
-              </NavLink>
+
               <div>
                 {isLoading && <CircularProgress />}
                 {user?.email && (
@@ -92,11 +90,14 @@ const Login = () => {
           <Button
             sx={{ width: "75%", m: 1 }}
             onClick={handleGoogleSign}
-            type="submit"
+            
             variant="contained"
           >
             Sign In With Google
           </Button>
+          <NavLink style={{ textDecoration: "none" }} to="/register"> <br/>
+            <Button variant="text">Register Here</Button>
+          </NavLink>
         </Container>
       </Container>
     </div>
