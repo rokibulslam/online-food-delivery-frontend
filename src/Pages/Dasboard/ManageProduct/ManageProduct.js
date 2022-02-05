@@ -13,21 +13,26 @@ const ManageProduct = () => {
     }, []);
 
     // Delete a Food Item 
-    const handleDeleteFood = (id) => {
-      axios
-        .delete(`https://lit-forest-28611.herokuapp.com/foods/delete/${id}`)
-        .then((res) => {
-          if (res.data.deletedCount) {
-            Swal.fire({
-              position: "center",
-              icon: "success",
-              title: "Product has been Deleted",
-              showConfirmButton: false,
-              timer: 2000,
-            });
-            window.location.reload();
-          }
-        });
+  const handleDeleteFood = (id) => {
+      const confirm = window.confirm(
+        "Are You Sure? You are going to delete Product"
+      );
+    if (confirm) {
+        axios
+          .delete(`https://lit-forest-28611.herokuapp.com/foods/delete/${id}`)
+          .then((res) => {
+            if (res.data.deletedCount) {
+              Swal.fire({
+                position: "center",
+                icon: "success",
+                title: "Product has been Deleted",
+                showConfirmButton: false,
+                timer: 2000,
+              });
+              window.location.reload();
+            }
+          });
+      }
     };
       
     return (

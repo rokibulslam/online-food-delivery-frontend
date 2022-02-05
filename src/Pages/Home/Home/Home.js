@@ -1,4 +1,5 @@
 import React from 'react';
+import Article from '../Article/Article';
 import Banner from '../Banner/Banner';
 import Footer from '../Footer/Footer';
 import Navigation from '../Navigation/Navigation';
@@ -13,6 +14,7 @@ const Home = () => {
             <Banner></Banner>
             <ProductFetch></ProductFetch>
             <Quality></Quality>
+            <Article></Article>
             <Footer></Footer>
         </div>
     );
