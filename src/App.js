@@ -7,7 +7,8 @@ import Register from "./Pages/LoginRegister/Register/Register";
 import Purchase from "./Pages/Purchase/Purchase";
 import PrivateRoute from "./Pages/LoginRegister/PrivateRoute/PrivateRoute";
 import AllFoods from "./Pages/AllFoods/AllFoods";
-import AdminPanel from "./Pages/AdminDashboard/AdminPanel/AdminPanel";
+import Dashboard from "./Pages/Dasboard/Dashboard/Dashboard";
+import AddProduct from "./Pages/Dasboard/AddProduct/AddProduct";
 
 
 function App() {
@@ -21,7 +22,6 @@ function App() {
             <Route path="/login" element={<Login />}></Route>
             <Route path="/register" element={<Register />}></Route>
             <Route path="/explore" element={<AllFoods />}></Route>
-            <Route path="/adminPanel" element={<AdminPanel />}></Route>
             <Route
               path="/home/purchase/:id"
               element={
@@ -30,6 +30,17 @@ function App() {
                 </PrivateRoute>
               }
             ></Route>
+            <Route
+              exact
+              path="/dashboard"
+              element={
+                <PrivateRoute>
+                  <Dashboard />
+                </PrivateRoute>
+              }
+            >
+              <Route path="/dashboard/addProduct" element={<AddProduct />}></Route>
+            </Route>
           </Routes>
         </Router>
       </AuthProvider>

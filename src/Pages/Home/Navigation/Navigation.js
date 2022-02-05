@@ -31,10 +31,10 @@ const Navigation = () => {
                 Home
               </NavLink>
               <NavLink
-                to="/adminPanel"
+                to="/dashboard"
                 className="text-decoration-none me-3 nav-text-color"
               >
-                Admin Dashboard
+                Dashboard
               </NavLink>
               <NavLink
                 to="/explore"
