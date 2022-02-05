@@ -5,9 +5,9 @@ import './Product.css'
 const Products = (props) => {
     const { _id, Name, Price, Description, Image } = props.product;
     return (
-      <div className="col-md-3 m-5">
-        <Card className='card-bg' style={{ width: "18rem" }}>
-          <Card.Img variant="top" src={Image} />
+      <div className="col-md-3">
+        <Card className='card-bg' >
+          <Card.Img variant="top" className='img-fluid' src={Image} />
           <Card.Body>
             <Card.Title>{Name}</Card.Title>
             <Card.Title className='banner-text'>${Price}</Card.Title>

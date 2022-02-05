@@ -1,5 +1,6 @@
 import React from 'react';
 import Banner from '../Banner/Banner';
+import Footer from '../Footer/Footer';
 import Navigation from '../Navigation/Navigation';
 import ProductFetch from '../ProductFetch/ProductFetch';
 import Quality from '../Quality/Quality';
@@ -12,6 +13,7 @@ const Home = () => {
             <Banner></Banner>
             <ProductFetch></ProductFetch>
             <Quality></Quality>
+            <Footer></Footer>
         </div>
     );
 };

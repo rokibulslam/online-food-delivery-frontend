@@ -2,13 +2,15 @@ import React from "react";
 import Button from "@restart/ui/esm/Button";
 import { NavLink } from "react-router-dom";
 import img from '../../../Images/inna-podolska-JspLKUauwSI-unsplash-removebg.png'
+
 import "./Banner.css";
+
 const Banner = () => {
   return (
     <div className="py-5 banner">
       <div className="container">
         <div className="row justify-content-center align-items-center">
-          <div className="col-md-6 pt-5 col-sm-12  text-start">
+          <div className="col-md-6 py-5 col-sm-12  text-start">
             <h4 className="h1-tag text-start">
               <i>Best Choice</i>{" "}
             </h4>
@@ -22,7 +24,7 @@ const Banner = () => {
               <button className="order-now-btn fw-light">Order Now</button>
             </NavLink>
           </div>
-          <div className="col-md-6 ">
+          <div className="col-md-6">
             <img className="img-fluid" src={img} alt="" />
           </div>
         </div>

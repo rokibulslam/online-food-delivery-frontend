@@ -22,9 +22,9 @@ const ProductFetch = () => {
           <i>Special For You</i>
         </h4>
         <h1>Popular Dishes</h1>
-        <div>
-          <div className="row">
-            {products.slice(0, 6)?.map((product) => (
+        <div className="py-5">
+          <div className="row g-5">
+            {products.slice(0, 8)?.map((product) => (
               <Products key={product._id} product={product}></Products>
             ))}
           </div>
