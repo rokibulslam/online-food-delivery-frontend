@@ -40,7 +40,8 @@ const AddProduct = () => {
     
     const handleSubmit = (e) => {
     //   Send Product to Database 
-      axios.post("http://localhost:5000/foods", productDetails)
+      axios
+        .post("https://lit-forest-28611.herokuapp.com/foods", productDetails)
         .then((res) => {
           if (res.data.insertedId) {
             Swal.fire({
@@ -51,7 +52,7 @@ const AddProduct = () => {
               timer: 2000,
             });
             setProductDetails({});
-            window.location.reload()
+            window.location.reload();
           }
         });
         e.preventDefault();

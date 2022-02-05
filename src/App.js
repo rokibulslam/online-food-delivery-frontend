@@ -12,7 +12,8 @@ import AddProduct from "./Pages/Dasboard/AddProduct/AddProduct";
 import ManageOrder from "./Pages/Dasboard/ManageOrder/ManageOrder";
 import MyOrder from "./Pages/Dasboard/MyOrder/MyOrder";
 import Contact from "./Pages/Contact/Contact";
-
+import Notfound from "./Pages/Notfound/Notfound";
+import ManageProduct from "./Pages/Dasboard/ManageProduct/ManageProduct"
 
 function App() {
   return (
@@ -49,7 +50,9 @@ function App() {
               ></Route>
               <Route path="/dashboard/orders" element={<ManageOrder />}></Route>
               <Route path="/dashboard/myOrders" element={<MyOrder />}></Route>
+              <Route path="/dashboard/manageProduct" element={<ManageProduct />}></Route>
             </Route>
+            <Route path="*" element={<Notfound></Notfound>}></Route>
           </Routes>
         </Router>
       </AuthProvider>

@@ -12,9 +12,9 @@ const MyOrder = () => {
 
     // Get Ordered food by customer email 
     useEffect(() => {
-        fetch(`http://localhost:5000/orders/${user?.email}`)
-        .then(res=> res.json())
-        .then(data=> setOrders(data))
+        fetch(`https://lit-forest-28611.herokuapp.com/orders/${user?.email}`)
+          .then((res) => res.json())
+          .then((data) => setOrders(data));
     }, [cancel])
 
     // Delete Ordered Food Item by ID
@@ -25,7 +25,7 @@ const MyOrder = () => {
 
       if (confirm) {
         axios
-          .delete(`http://localhost:5000/delete/${id}`)
+          .delete(`https://lit-forest-28611.herokuapp.com/delete/${id}`)
           .then((res) => {
             if (res.data.deletedCount) {
               Swal.fire({

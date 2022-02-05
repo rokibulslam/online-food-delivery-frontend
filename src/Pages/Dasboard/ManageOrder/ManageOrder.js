@@ -8,14 +8,14 @@ const ManageOrder = () => {
     const [update, setUpdate] = useState("");
 
     useEffect(() => {
-        fetch("http://localhost:5000/orders")
-            .then(res => res.json())
-        .then(data => setOrders(data))
+        fetch("https://lit-forest-28611.herokuapp.com/orders")
+          .then((res) => res.json())
+          .then((data) => setOrders(data));
     }, [update])
     console.log(orders)
     const handlePending = (id, text) => {
       axios
-        .put(`http://localhost:5000/status/${id}`, {
+        .put(`https://lit-forest-28611.herokuapp.com/status/${id}`, {
           status: text,
         })
         .then((res) => {
@@ -39,7 +39,7 @@ const ManageOrder = () => {
 
       if (confirm) {
         axios
-          .delete(`http://localhost:5000/delete/${id}`)
+          .delete(`https://lit-forest-28611.herokuapp.com/delete/${id}`)
           .then((res) => {
             if (res.data.deletedCount) {
               Swal.fire({

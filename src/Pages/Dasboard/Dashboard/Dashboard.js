@@ -59,6 +59,16 @@ function Dashboard(props) {
           </NavLink>
         </ListItem>
         <ListItem>
+          <NavLink
+            style={{ textDecoration: "none" }}
+            to="/dashboard/manageProduct"
+          >
+            <Button variant="text" style={{ color: "inherit" }}>
+              ManageProduct
+            </Button>
+          </NavLink>
+        </ListItem>
+        <ListItem>
           <NavLink style={{ textDecoration: "none" }} to="/dashboard/orders">
             <Button variant="text" style={{ color: "inherit" }}>
               Manage Order
@@ -77,7 +87,9 @@ function Dashboard(props) {
             onClick={logout}
             variant="text"
             sx={{ color: "text.primary" }}
-          >Logout</Button>
+          >
+            Logout
+          </Button>
         </ListItem>
       </List>
     </Box>

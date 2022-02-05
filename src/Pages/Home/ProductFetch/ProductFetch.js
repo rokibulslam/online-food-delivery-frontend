@@ -8,7 +8,7 @@ const ProductFetch = () => {
   const [products, setProducts] = useState([]);
   const { isLoading, setIsLoading } = useAuth();
   useEffect(() => {
-    fetch("http://localhost:5000/foods")
+    fetch("https://lit-forest-28611.herokuapp.com/foods")
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, []);
