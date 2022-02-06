@@ -25,26 +25,26 @@ const Navigation = () => {
             <Nav className="me-auto">
               <NavLink
                 to="/home"
-                className="  text-decoration-none me-3 nav-text-color"
+                className="  text-decoration-none me-3 nav-text-color fs-5"
                 href="#features"
               >
                 Home
               </NavLink>
               <NavLink
                 to="/dashboard"
-                className="text-decoration-none me-3 nav-text-color"
+                className="text-decoration-none me-3 nav-text-color fs-5"
               >
                 Dashboard
               </NavLink>
               <NavLink
                 to="/explore"
-                className="nav-text-color text-decoration-none me-3"
+                className="nav-text-color text-decoration-none me-3 fs-5"
               >
                 Explore
               </NavLink>
               <NavLink
                 to="/contact"
-                className="text-decoration-none me-3 nav-text-color"
+                className="text-decoration-none me-3 nav-text-color fs-5"
               >
                 Contact
               </NavLink>
@@ -55,7 +55,7 @@ const Navigation = () => {
                   {user.displayName}
                 </p>
                 <p
-                  className="logout-button  text-decoration-none me-3 mb-lg-0 nav-text-color"
+                  className="logout-button  text-decoration-none me-3 mb-lg-0 nav-text-color fs-5"
                   onClick={logout}
                 >
                   Logout
@@ -66,7 +66,7 @@ const Navigation = () => {
                 to="/login"
                 className="nav-text-color text-decoration-none me-3"
               >
-                <p className="logout-button text-white text-decoration-none me-3 mb-lg-0">
+                <p className="logout-button text-white text-decoration-none me-3 mb-lg-0 fs-5">
                   Login
                 </p>
               </NavLink>

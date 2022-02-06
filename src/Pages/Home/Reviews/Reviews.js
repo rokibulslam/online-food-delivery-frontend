@@ -17,7 +17,7 @@ const Reviews = () => {
       .then((res) => res.json())
       .then((data) => setReviews(data));
   }, []);
-  console.log(reviews);
+  
   return (
     <div className="review-bg ">
       <h1 className="">Customer Reviews</h1>
@@ -25,8 +25,8 @@ const Reviews = () => {
         <Container>
           <Grid container spacing={2}>
             {reviews?.map((review) => (
-              <Grid key={review._id} item xs={12} sm={6} md={3}>
-                <Paper elevation={3} sx={{ py: 2 }}>
+              <Grid key={review._id} item xs={12} sm={6} md={4}>
+                <Paper elevation={3} sx={{ p: 2, height: 300, width: 300 }}>
                   <Typography
                     sx={{ color: "error.main", fontWeight: 600 }}
                     variant="h5"
@@ -65,7 +65,7 @@ const Reviews = () => {
               </Grid>
             ))}
           </Grid>
-          <Typography variant="h6" gutterBottom component="div">
+          <Typography sx={{ mt: 5 }} variant="h6" gutterBottom component="div">
             <NavLink to="/dashboard/review">Give A Review</NavLink>
           </Typography>
         </Container>

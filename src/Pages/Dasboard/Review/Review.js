@@ -39,7 +39,7 @@ const Review = () => {
           });
         }
       });
-    console.log(review);
+    
     e.preventDefault();
   };
 

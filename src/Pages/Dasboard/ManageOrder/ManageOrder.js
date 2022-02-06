@@ -12,7 +12,7 @@ const ManageOrder = () => {
           .then((res) => res.json())
           .then((data) => setOrders(data));
     }, [update])
-    console.log(orders)
+    
     const handlePending = (id, text) => {
       axios
         .put(`https://lit-forest-28611.herokuapp.com/status/${id}`, {

@@ -17,7 +17,7 @@ const useFirebase = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [authError, setAuthError] = useState("");
   const [admin, setAdmin] = useState(false)
-  console.log(admin)
+  
   const auth = getAuth();
   const googleProvider = new GoogleAuthProvider();
 
@@ -28,7 +28,7 @@ const useFirebase = () => {
       .then((result) => {
         const user = result?.user;
         setUser(user)
-        console.log(user)
+        
         // Save user to database 
         saveUserData(user?.email, user?.displayName, 'PUT')
         setAuthError("");
