@@ -49,14 +49,22 @@ function Dashboard(props) {
       <Toolbar />
       <Divider />
       <List>
-        
         {!admin && (
           <Box>
             <ListItem>
-              
               <NavLink style={{ textDecoration: "none" }} to="/">
                 <Button variant="text" style={{ color: "inherit" }}>
                   Home
+                </Button>
+              </NavLink>
+            </ListItem>
+            <ListItem>
+              <NavLink
+                style={{ textDecoration: "none" }}
+                to="/dashboard/review"
+              >
+                <Button variant="text" style={{ color: "inherit" }}>
+                  Add A Review
                 </Button>
               </NavLink>
             </ListItem>
@@ -75,7 +83,6 @@ function Dashboard(props) {
         {admin && (
           <Box>
             <ListItem>
-              
               <NavLink
                 style={{ textDecoration: "none" }}
                 to="/dashboard/addProduct"
@@ -159,9 +166,16 @@ function Dashboard(props) {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap component="div">
-            Dashboard
-          </Typography>
+          {admin && (
+            <Typography variant="h6" noWrap component="div">
+              Admin Dashboard
+            </Typography>
+          )}
+          {!admin && (
+            <Typography variant="h6" noWrap component="div">
+              User Dashboard
+            </Typography>
+          )}
         </Toolbar>
       </AppBar>
       <Box

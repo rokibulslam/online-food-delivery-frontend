@@ -4,7 +4,9 @@ import { useState } from 'react';
 
 const MakeAdmin = () => {
     const [email, setEmail] = useState('');
-    const [success, setSuccess] = useState(false)
+  const [success, setSuccess] = useState(false)
+  const [admins, setAdmins] = useState([]);
+  
     const handleOnBlur = (e) => {
         setEmail(e.target.value);
     }

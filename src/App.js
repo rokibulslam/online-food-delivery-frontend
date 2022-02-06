@@ -16,6 +16,7 @@ import Notfound from "./Pages/Notfound/Notfound";
 import ManageProduct from "./Pages/Dasboard/ManageProduct/ManageProduct"
 import MakeAdmin from "./Pages/Dasboard/MakeAdmin/MakeAdmin";
 import AdminRoute from "./Pages/LoginRegister/AdminRoute/AdminRoute";
+import Review from "./Pages/Dasboard/Review/Review";
 
 function App() {
   return (
@@ -48,36 +49,18 @@ function App() {
             >
               <Route
                 path="/dashboard/addProduct"
-                element={
-                  
-                    <AddProduct />
-                  
-                }
+                element={<AddProduct />}
               ></Route>
-              <Route
-                path="/dashboard/orders"
-                element={
-                  
-                    <ManageOrder />
-                  
-                }
-              ></Route>
+              <Route path="/dashboard/orders" element={<ManageOrder />}></Route>
               <Route path="/dashboard/myOrders" element={<MyOrder />}></Route>
+              <Route path="/dashboard/review" element={<Review />}></Route>
               <Route
                 path="/dashboard/manageProduct"
-                element={
-                  
-                    <ManageProduct />
-                  
-                }
+                element={<ManageProduct />}
               ></Route>
               <Route
                 path="/dashboard/makeAdmin"
-                element={
-                  
-                    <MakeAdmin />
-                  
-                }
+                element={<MakeAdmin />}
               ></Route>
             </Route>
             <Route path="*" element={<Notfound></Notfound>}></Route>

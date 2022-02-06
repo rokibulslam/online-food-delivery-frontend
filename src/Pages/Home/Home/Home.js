@@ -5,6 +5,7 @@ import Footer from '../Footer/Footer';
 import Navigation from '../Navigation/Navigation';
 import ProductFetch from '../ProductFetch/ProductFetch';
 import Quality from '../Quality/Quality';
+import Reviews from '../Reviews/Reviews';
 
 
 const Home = () => {
@@ -15,6 +16,7 @@ const Home = () => {
             <ProductFetch></ProductFetch>
             <Quality></Quality>
             <Article></Article>
+            <Reviews></Reviews>
             <Footer></Footer>
         </div>
     );
