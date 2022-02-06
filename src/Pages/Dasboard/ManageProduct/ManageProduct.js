@@ -52,6 +52,7 @@ const ManageProduct = () => {
                     <Card.Img
                       variant="top"
                       src={product.Image}
+                      height="200px"
                     />
                     <Card.Body>
                       <Card.Title>{product.Name}</Card.Title>
