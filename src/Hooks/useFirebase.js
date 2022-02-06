@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import initializeFirebase from "../Firebase/firebase.init"
 import { createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
+import axios from "axios";
+import { jsonEval } from "@firebase/util";
 
 
 
@@ -23,6 +25,9 @@ const useFirebase = () => {
     signInWithPopup(auth, googleProvider)
       .then((result) => {
         const user = result.user;
+        setUser(user)
+        // Save user to database 
+        saveUserData(user.email, user.displayName, 'PUT')
         setAuthError("");
         const destination = location?.state?.from || "/";
         navigate(destination);
@@ -40,6 +45,8 @@ const useFirebase = () => {
         setAuthError("");
         const newUser = { email, displayName: name };
         setUser(newUser);
+        // save user to Database
+        saveUserData(email, name, 'POST')
         // send name to firebase after creation
         updateProfile(auth.currentUser, {
           displayName: name,
@@ -93,6 +100,24 @@ const useFirebase = () => {
       })
       .finally(() => setIsLoading(false));
   };
+  // Get user role from database 
+  useEffect(()=> {
+    fetch("http://localhost:5000/users")
+      .then(res => res.json())
+    .then(data => console.log(data[0]))
+  },[]);
+  // Save user to database 
+  const saveUserData = (email, name, method) => {
+    const userData = {email, name}
+    fetch("http://localhost:5000/users", {
+      method: method,
+      headers: {
+        "content-type": "application",
+      },
+      body: JSON.stringify(userData),
+    }).then();
+
+  }
 
   return {
     user,

@@ -1,8 +1,9 @@
-import { Button, Container, MenuItem, TextField } from '@mui/material';
+import { Button, CircularProgress, Container, MenuItem, TextField } from '@mui/material';
 import { Box } from '@mui/system';
 import axios from 'axios';
 import React, { useState } from 'react';
 import Swal from "sweetalert2";
+import useAuth from '../../../Hooks/useAuth';
 
 // Food Category 
 const currencies = [
@@ -26,6 +27,7 @@ const currencies = [
 
 
 const AddProduct = () => {
+  const {isLoading}= useAuth()
     const [category, setCategory] = useState("");
     const [productDetails, setProductDetails] = useState({});
     const handleOnChange = (e) => {
@@ -59,6 +61,9 @@ const AddProduct = () => {
     };
     return (
       <Container sx={{ display: "flex" }}>
+          { (isLoading) &&
+     <CircularProgress />}
+  
         <Container>
           <h1 className="register-header-text">Add A Food Item</h1>
 
