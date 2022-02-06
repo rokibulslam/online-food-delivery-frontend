@@ -10,17 +10,17 @@ const MakeAdmin = () => {
     }
     const handleSubmitAdmin = (e) => {
         const usersEmail = { email };
-        fetch("", {
+        fetch("http://localhost:5000/users/admin", {
           method: "PUT",
           headers: { "content-type": "application/json" },
           body: JSON.stringify(usersEmail),
         })
-            .then(res => res.json())
-            .then(data => {
-                if (data.modifiedCount) {
-                    setSuccess(true)
-                }
-            })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.modifiedCount) {
+              setSuccess(true);
+            }
+          });
         e.preventDefault()
     }
     return (

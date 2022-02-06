@@ -14,6 +14,8 @@ import MyOrder from "./Pages/Dasboard/MyOrder/MyOrder";
 import Contact from "./Pages/Contact/Contact";
 import Notfound from "./Pages/Notfound/Notfound";
 import ManageProduct from "./Pages/Dasboard/ManageProduct/ManageProduct"
+import MakeAdmin from "./Pages/Dasboard/MakeAdmin/MakeAdmin";
+import AdminRoute from "./Pages/LoginRegister/AdminRoute/AdminRoute";
 
 function App() {
   return (
@@ -46,11 +48,37 @@ function App() {
             >
               <Route
                 path="/dashboard/addProduct"
-                element={<AddProduct />}
+                element={
+                  <AdminRoute>
+                    <AddProduct />
+                  </AdminRoute>
+                }
               ></Route>
-              <Route path="/dashboard/orders" element={<ManageOrder />}></Route>
+              <Route
+                path="/dashboard/orders"
+                element={
+                  <AdminRoute>
+                    <ManageOrder />
+                  </AdminRoute>
+                }
+              ></Route>
               <Route path="/dashboard/myOrders" element={<MyOrder />}></Route>
-              <Route path="/dashboard/manageProduct" element={<ManageProduct />}></Route>
+              <Route
+                path="/dashboard/manageProduct"
+                element={
+                  <AdminRoute>
+                    <ManageProduct />
+                  </AdminRoute>
+                }
+              ></Route>
+              <Route
+                path="/dashboard/makeAdmin"
+                element={
+                  <AdminRoute>
+                    <MakeAdmin />
+                  </AdminRoute>
+                }
+              ></Route>
             </Route>
             <Route path="*" element={<Notfound></Notfound>}></Route>
           </Routes>

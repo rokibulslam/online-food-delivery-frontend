@@ -25,7 +25,7 @@ function Dashboard(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
-  const {user, logout } = useAuth();
+  const {logout, admin } = useAuth();
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
@@ -41,47 +41,72 @@ function Dashboard(props) {
           </ListItemIcon>
           <ListItemText primary="admin" />
         </ListItem>
-        <ListItem>
-          <NavLink style={{ textDecoration: "none" }} to="/">
-            <Button variant="text" style={{ color: "inherit" }}>
-              Home
-            </Button>
-          </NavLink>
-        </ListItem>
-        <ListItem>
-          <NavLink
-            style={{ textDecoration: "none" }}
-            to="/dashboard/addProduct"
-          >
-            <Button variant="text" style={{ color: "inherit" }}>
-              Add a Product
-            </Button>
-          </NavLink>
-        </ListItem>
-        <ListItem>
-          <NavLink
-            style={{ textDecoration: "none" }}
-            to="/dashboard/manageProduct"
-          >
-            <Button variant="text" style={{ color: "inherit" }}>
-              ManageProduct
-            </Button>
-          </NavLink>
-        </ListItem>
-        <ListItem>
-          <NavLink style={{ textDecoration: "none" }} to="/dashboard/orders">
-            <Button variant="text" style={{ color: "inherit" }}>
-              Manage Order
-            </Button>
-          </NavLink>
-        </ListItem>
-        <ListItem>
-          <NavLink style={{ textDecoration: "none" }} to="/dashboard/myOrders">
-            <Button variant="text" style={{ color: "inherit" }}>
-              My Order
-            </Button>
-          </NavLink>
-        </ListItem>
+        {!admin && (
+          <Box>
+            <ListItem>
+              <NavLink style={{ textDecoration: "none" }} to="/">
+                <Button variant="text" style={{ color: "inherit" }}>
+                  Home
+                </Button>
+              </NavLink>
+            </ListItem>
+            <ListItem>
+              <NavLink
+                style={{ textDecoration: "none" }}
+                to="/dashboard/myOrders"
+              >
+                <Button variant="text" style={{ color: "inherit" }}>
+                  My Order
+                </Button>
+              </NavLink>
+            </ListItem>
+          </Box>
+        )}
+        {admin && (
+          <Box>
+            <ListItem>
+              <NavLink
+                style={{ textDecoration: "none" }}
+                to="/dashboard/addProduct"
+              >
+                <Button variant="text" style={{ color: "inherit" }}>
+                  Add a Product
+                </Button>
+              </NavLink>
+            </ListItem>
+            <ListItem>
+              <NavLink
+                style={{ textDecoration: "none" }}
+                to="/dashboard/manageProduct"
+              >
+                <Button variant="text" style={{ color: "inherit" }}>
+                  ManageProduct
+                </Button>
+              </NavLink>
+            </ListItem>
+            <ListItem>
+              <NavLink
+                style={{ textDecoration: "none" }}
+                to="/dashboard/orders"
+              >
+                <Button variant="text" style={{ color: "inherit" }}>
+                  Manage Order
+                </Button>
+              </NavLink>
+            </ListItem>
+            <ListItem>
+              <NavLink
+                style={{ textDecoration: "none" }}
+                to="/dashboard/makeAdmin"
+              >
+                <Button variant="text" style={{ color: "inherit" }}>
+                  Make Admin
+                </Button>
+              </NavLink>
+            </ListItem>
+          </Box>
+        )}
+
         <ListItem>
           <Button
             onClick={logout}

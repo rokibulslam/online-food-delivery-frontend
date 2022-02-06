@@ -3,7 +3,7 @@ import { Navigate, useLocation } from "react-router-dom";
 import useAuth from "../../../Hooks/useAuth";
 import { CircularProgress } from "@mui/material";
 
-const PrivateRoute = ({ children, ...rest }) => {
+const PrivateRoute = ({ children }) => {
   const { user, isLoading } = useAuth();
   let location = useLocation();
   if (isLoading) {

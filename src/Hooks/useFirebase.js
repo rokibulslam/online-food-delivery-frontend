@@ -3,6 +3,7 @@ import initializeFirebase from "../Firebase/firebase.init"
 import { createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import axios from "axios";
 import { jsonEval } from "@firebase/util";
+import { Navigate } from "react-router-dom";
 
 
 
@@ -15,7 +16,8 @@ const useFirebase = () => {
   const [user, setUser] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [authError, setAuthError] = useState("");
-
+  const [admin, setAdmin] = useState(false)
+  console.log(admin)
   const auth = getAuth();
   const googleProvider = new GoogleAuthProvider();
 
@@ -24,12 +26,13 @@ const useFirebase = () => {
     setIsLoading(true);
     signInWithPopup(auth, googleProvider)
       .then((result) => {
-        const user = result.user;
+        const user = result?.user;
         setUser(user)
+        console.log(user)
         // Save user to database 
-        saveUserData(user.email, user.displayName, 'PUT')
+        saveUserData(user?.email, user?.displayName, 'PUT')
         setAuthError("");
-        const destination = location?.state?.from || "/";
+        const destination = location?.state?.from || "/dashboard";
         navigate(destination);
       })
       .catch((error) => {
@@ -65,7 +68,7 @@ const useFirebase = () => {
     setIsLoading(true);
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        const destination = location?.state?.from || "/";
+        const destination = location?.state?.from || "/dashboard";
         navigate(destination);
         setAuthError("");
       })
@@ -102,20 +105,22 @@ const useFirebase = () => {
   };
   // Get user role from database 
   useEffect(()=> {
-    fetch("http://localhost:5000/users")
+    fetch(`http://localhost:5000/users/${user?.email}`)
       .then(res => res.json())
-    .then(data => console.log(data[0]))
-  },[]);
+    .then(data => setAdmin(data.admin))
+  },[user?.email]);
   // Save user to database 
   const saveUserData = (email, name, method) => {
     const userData = {email, name}
+    console.log(method)
     fetch("http://localhost:5000/users", {
       method: method,
-      headers: {
-        "content-type": "application",
-      },
+            headers: {
+                'content-type': 'application/json'
+            },
       body: JSON.stringify(userData),
-    }).then();
+    })
+    .then();
 
   }
 
@@ -127,6 +132,7 @@ const useFirebase = () => {
     authError,
     registerUser,
     loginUser,
+    admin
   };
 }
 export default useFirebase
