@@ -91,7 +91,7 @@ const Footer = () => {
         </div>
         <div>
           <p
-            className="text-white bg-dark p-5 mb-0
+            className="text-white bg-dark py-3 px-5 mb-0
                 text-center"
           >
             Copyright © 2020. All Rights Reserved by Hungry
