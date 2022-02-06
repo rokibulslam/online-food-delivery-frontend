@@ -15,10 +15,24 @@ import MailIcon from "@mui/icons-material/Mail";
 import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-import { Outlet, Link, NavLink } from "react-router-dom";
+import { Outlet, Link, NavLink, Route } from "react-router-dom";
 import { Button } from "@mui/material";
 import useAuth from "../../../Hooks/useAuth";
-
+import { FaHome } from "react-icons/fa";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faHome,
+  faStore,
+  faStar,
+  faShoppingBag,
+  faCartPlus,
+  faTasks,
+  faUser,
+  faSignOutAlt,
+} from "@fortawesome/free-solid-svg-icons";
+import ManageOrder from "../ManageOrder/ManageOrder";
+import MakeAdmin from "../MakeAdmin/MakeAdmin";
+import MyOrder from "../MyOrder/MyOrder";
 const drawerWidth = 200;
 
 function Dashboard(props) {
@@ -35,22 +49,18 @@ function Dashboard(props) {
       <Toolbar />
       <Divider />
       <List>
-        <ListItem button>
-          <ListItemIcon>
-            <InboxIcon /> : <MailIcon />}
-          </ListItemIcon>
-          <ListItemText primary="admin" />
-        </ListItem>
+        
         {!admin && (
           <Box>
             <ListItem>
+              
               <NavLink style={{ textDecoration: "none" }} to="/">
                 <Button variant="text" style={{ color: "inherit" }}>
                   Home
                 </Button>
               </NavLink>
             </ListItem>
-            <ListItem>
+            {/* <ListItem>
               <NavLink
                 style={{ textDecoration: "none" }}
                 to="/dashboard/myOrders"
@@ -59,12 +69,13 @@ function Dashboard(props) {
                   My Order
                 </Button>
               </NavLink>
-            </ListItem>
+            </ListItem> */}
           </Box>
         )}
         {admin && (
           <Box>
             <ListItem>
+              
               <NavLink
                 style={{ textDecoration: "none" }}
                 to="/dashboard/addProduct"
@@ -94,7 +105,7 @@ function Dashboard(props) {
                 </Button>
               </NavLink>
             </ListItem>
-            <ListItem>
+            {/* <ListItem>
               <NavLink
                 style={{ textDecoration: "none" }}
                 to="/dashboard/makeAdmin"
@@ -103,7 +114,7 @@ function Dashboard(props) {
                   Make Admin
                 </Button>
               </NavLink>
-            </ListItem>
+            </ListItem> */}
           </Box>
         )}
 
@@ -113,6 +124,11 @@ function Dashboard(props) {
             variant="text"
             sx={{ color: "text.primary" }}
           >
+            <FontAwesomeIcon
+              style={{ paddingRight: "10px" }}
+              icon={faSignOutAlt}
+              size="2x"
+            />
             Logout
           </Button>
         </ListItem>
@@ -194,7 +210,8 @@ function Dashboard(props) {
         }}
       >
         <Toolbar />
-
+        {admin && <MakeAdmin></MakeAdmin>}
+        {!admin && <MyOrder></MyOrder>}
         <Outlet></Outlet>
       </Box>
     </Box>
