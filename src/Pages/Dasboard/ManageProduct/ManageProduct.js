@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react';
 import { Button, Card, NavLink } from 'react-bootstrap';
 import useAuth from '../../../Hooks/useAuth';
 import Swal from 'sweetalert2';
+
+
 const ManageProduct = () => {
     const [products, setProducts] = useState([]);
     
@@ -44,12 +46,11 @@ const ManageProduct = () => {
           <h1>Popular Dishes</h1>
           <div className="py-5">
             <div className="row g-5">
-              {products.slice(0, 8)?.map((product) => (
+              {products.map((product) => (
                 <div className="col-md-3">
                   <Card className="card-bg">
                     <Card.Img
                       variant="top"
-                      className="img-fluid"
                       src={product.Image}
                     />
                     <Card.Body>

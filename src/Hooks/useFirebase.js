@@ -106,22 +106,21 @@ const useFirebase = () => {
   // Get user role from database 
   useEffect(() => {
     
-    fetch(`http://localhost:5000/users/${user?.email}`)
+    fetch(`https://lit-forest-28611.herokuapp.com/users/${user?.email}`)
       .then((res) => res.json())
-      .then((data) => setAdmin(data.admin))
+      .then((data) => setAdmin(data.admin));
     
   },[user?.email]);
   // Save user to database 
   const saveUserData = (email, name, method) => {
     const userData = {email, name}
-    fetch("http://localhost:5000/users", {
+    fetch("https://lit-forest-28611.herokuapp.com/users", {
       method: method,
-            headers: {
-                'content-type': 'application/json'
-            },
+      headers: {
+        "content-type": "application/json",
+      },
       body: JSON.stringify(userData),
-    })
-    .then();
+    }).then();
 
   }
 

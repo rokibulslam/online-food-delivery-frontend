@@ -26,17 +26,19 @@ const Review = () => {
       star: star,
       customerName: user?.displayName,
     };
-    axios.post("http://localhost:5000/review", review).then((res) => {
-      if (res.data.insertedId) {
-        Swal.fire({
-          position: "center",
-          icon: "success",
-          title: "Reviewed Successfully",
-          showConfirmButton: false,
-          timer: 2000,
-        });
-      }
-    });
+    axios
+      .post("https://lit-forest-28611.herokuapp.com/review", review)
+      .then((res) => {
+        if (res.data.insertedId) {
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Reviewed Successfully",
+            showConfirmButton: false,
+            timer: 2000,
+          });
+        }
+      });
     console.log(review);
     e.preventDefault();
   };
