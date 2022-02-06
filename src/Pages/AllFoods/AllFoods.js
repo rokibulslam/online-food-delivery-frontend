@@ -23,7 +23,7 @@ const AllFoods = () => {
             <h1>Popular Dishes</h1>
             <div className="py-5">
               <div className="row g-5">
-                {products.slice(0, 8)?.map((product) => (
+                {products?.map((product) => (
                   <Products key={product._id} product={product}></Products>
                 ))}
               </div>
