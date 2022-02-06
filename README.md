@@ -1,6 +1,6 @@
 # This is a MERN stack Project
 
-Here is my Live site[Hungry](https://online-food-delivery-c232a.web.app/).
+Here is my Live site [HUNGRY](https://online-food-delivery-c232a.web.app/).
 
 ## Technology Used
 * React, React Router v@6

@@ -69,18 +69,21 @@ const Footer = () => {
                   <a
                     className="px-2 banner-text"
                     href="https://www.facebook.com/"
+                    target="_blank"
                   >
                     {facebook}
                   </a>
                   <a
                     className="px-2 banner-text"
                     href="https://www.facebook.com/"
+                    target="_blank"
                   >
                     {instgaram}
                   </a>
                   <a
                     className="px-2 banner-text"
                     href="https://www.facebook.com/"
+                    target="_blank"
                   >
                     {twitter}
                   </a>
