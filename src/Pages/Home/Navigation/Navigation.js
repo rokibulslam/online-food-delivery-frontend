@@ -17,7 +17,7 @@ const Navigation = () => {
         variant="dark"
       >
         <Container>
-          <Navbar.Brand className="nav-text-color" href="#home">
+          <Navbar.Brand className="nav-text-color me-5 fs-1" href="#home">
             Hungry
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />

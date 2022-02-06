@@ -1,5 +1,7 @@
 .contact-header{
     background-color: rgb(182, 0, 31);
-    color: azure;
-    
+    color: azure; 
+}
+.contact-info{
+    background-color: rgba(245, 235, 218, 0.411);
 }

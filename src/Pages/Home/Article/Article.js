@@ -18,7 +18,7 @@ const Article = () => {
               </NavLink>
             </div>
             <div className="col-md-6 col-sm-12">
-              <img className="img-fluid" src={img} alt="" />
+              <img className='img-fluid' src={img} alt="" />
             </div>
           </div>
         </div>
