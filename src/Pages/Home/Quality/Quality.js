@@ -1,7 +1,7 @@
 import React from 'react';
 import img from '../../../Images/packet.png';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCoffee } from "@fortawesome/free-solid-svg-icons";
+import { faCoffee, faShoppingCart, faHome} from "@fortawesome/free-solid-svg-icons";
 
 
 import './Quality.css'
@@ -26,19 +26,31 @@ const Quality = () => {
               </p>
               <div className="d-flex">
                 <div className="d-flex flex-column m-3">
-                  <FontAwesomeIcon icon={faCoffee} size="3x" />
+                  <FontAwesomeIcon
+                    className="banner-text"
+                    icon={faShoppingCart}
+                    size="3x"
+                  />
                   <p>
                     Delivery In <br /> 30 Minutes
                   </p>
                 </div>
                 <div className="d-flex m-3 flex-column">
-                  <FontAwesomeIcon icon={faCoffee} size="3x" />
+                  <FontAwesomeIcon
+                    className="banner-text"
+                    icon={faShoppingCart}
+                    size="3x"
+                  />
                   <p>
                     Free Shipping <br /> from 75$
                   </p>
                 </div>
                 <div className="d-flex m-3 flex-column">
-                  <FontAwesomeIcon icon={faCoffee} size="3x" />
+                  <FontAwesomeIcon
+                    className="banner-text"
+                    icon={faHome}
+                    size="3x"
+                  />
                   <p>
                     Delivery on <br />
                     your deskstep

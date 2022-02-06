@@ -55,7 +55,7 @@ const Navigation = () => {
                   {user.displayName}
                 </p>
                 <p
-                  className="logout-button text-white text-decoration-none me-3 mb-lg-0"
+                  className="logout-button  text-decoration-none me-3 mb-lg-0 nav-text-color"
                   onClick={logout}
                 >
                   Logout

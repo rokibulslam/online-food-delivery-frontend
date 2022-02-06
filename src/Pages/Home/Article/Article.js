@@ -11,7 +11,7 @@ const Article = () => {
               <h4>
                 <i className="banner-text">Make With Love</i>
               </h4>
-              <h1 className="text-white">We Make the Best </h1>
+              <h1 className="">We Make the Best </h1>
               <h1 className="banner-text">On the Way!</h1>
               <NavLink to="/contact">
                 <button className="order-now-btn">Contact With Us</button>
