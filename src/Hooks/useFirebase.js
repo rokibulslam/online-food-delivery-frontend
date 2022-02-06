@@ -104,15 +104,16 @@ const useFirebase = () => {
       .finally(() => setIsLoading(false));
   };
   // Get user role from database 
-  useEffect(()=> {
+  useEffect(() => {
+    
     fetch(`http://localhost:5000/users/${user?.email}`)
-      .then(res => res.json())
-    .then(data => setAdmin(data.admin))
+      .then((res) => res.json())
+      .then((data) => setAdmin(data.admin))
+    
   },[user?.email]);
   // Save user to database 
   const saveUserData = (email, name, method) => {
     const userData = {email, name}
-    console.log(method)
     fetch("http://localhost:5000/users", {
       method: method,
             headers: {

@@ -49,34 +49,34 @@ function App() {
               <Route
                 path="/dashboard/addProduct"
                 element={
-                  <AdminRoute>
+                  
                     <AddProduct />
-                  </AdminRoute>
+                  
                 }
               ></Route>
               <Route
                 path="/dashboard/orders"
                 element={
-                  <AdminRoute>
+                  
                     <ManageOrder />
-                  </AdminRoute>
+                  
                 }
               ></Route>
               <Route path="/dashboard/myOrders" element={<MyOrder />}></Route>
               <Route
                 path="/dashboard/manageProduct"
                 element={
-                  <AdminRoute>
+                  
                     <ManageProduct />
-                  </AdminRoute>
+                  
                 }
               ></Route>
               <Route
                 path="/dashboard/makeAdmin"
                 element={
-                  <AdminRoute>
+                  
                     <MakeAdmin />
-                  </AdminRoute>
+                  
                 }
               ></Route>
             </Route>

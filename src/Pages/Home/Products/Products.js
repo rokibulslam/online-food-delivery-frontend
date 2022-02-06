@@ -7,7 +7,7 @@ const Products = (props) => {
     return (
       <div className="col-md-3">
         <Card className='card-bg' >
-          <Card.Img variant="top" className='img-fluid' src={Image} />
+          <Card.Img variant="top" height="200px" className='' src={Image} />
           <Card.Body>
             <Card.Title>{Name}</Card.Title>
             <Card.Title className='banner-text'>${Price}</Card.Title>
