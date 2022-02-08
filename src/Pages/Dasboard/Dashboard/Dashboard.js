@@ -187,7 +187,12 @@ function Dashboard(props) {
             <MenuIcon />
           </IconButton>
           {admin && (
-            <Typography variant="h6" noWrap component="div">
+            <Typography
+              sx={{ flexGrow: 1 }}
+              variant="h6"
+              noWrap
+              component="div"
+            >
               Admin Dashboard
             </Typography>
           )}
@@ -196,6 +201,14 @@ function Dashboard(props) {
               User Dashboard
             </Typography>
           )}
+          <span >
+            <img style={{height: '45px', width:'45px', borderRadius: '50%', marginRight: '10px'}} src={user.photoURL} alt="" />
+          </span>
+          <Box>
+            <Typography variant="h6" noWrap component="div">
+              {user.displayName}
+            </Typography>
+          </Box>
         </Toolbar>
       </AppBar>
       <Box

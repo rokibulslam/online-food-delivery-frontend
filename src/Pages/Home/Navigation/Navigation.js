@@ -51,6 +51,19 @@ const Navigation = () => {
             </Nav>
             {user.email ? (
               <div className="d-flex justify-content-center align-items-center">
+                <span>
+
+                  {<img
+                    style={{
+                      height: "45px",
+                      width: "45px",
+                      borderRadius: "50%",
+                      marginRight: "10px",
+                    }}
+                    src={user.photoURL}
+                    alt=""
+                  />}
+                </span>
                 <p className="text-white text-decoration-none me-3 mb-lg-0">
                   {user.displayName}
                 </p>
