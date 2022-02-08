@@ -33,27 +33,48 @@ import {
 import ManageOrder from "../ManageOrder/ManageOrder";
 import MakeAdmin from "../MakeAdmin/MakeAdmin";
 import MyOrder from "../MyOrder/MyOrder";
+import { green } from "@mui/material/colors";
+import { height } from "@mui/system";
 const drawerWidth = 200;
 
 function Dashboard(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
-  const {logout, admin } = useAuth();
+  const {logout, admin, user } = useAuth();
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
 
   const drawer = (
-    <Box>
-      <Toolbar />
-      <Divider />
+    <Box
+      style={{
+        backgroundColor: "rgb(49, 58, 70)",
+        height: "100vh",
+        color: "whitesmoke",
+      }}
+    >
+      <Typography
+        variant="h3"
+        sx={{
+          mt: 2,
+          mb: 0,
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <span style={{ color: "red" }}>H</span>UNGR
+        <span style={{ color: "red" }}>Y</span>
+      </Typography>
+
+      <Divider style={{ color: "white", height: "2px" }} />
       <List>
         {!admin && (
           <Box>
             <ListItem>
               <NavLink style={{ textDecoration: "none" }} to="/">
-                <Button variant="text" style={{ color: "inherit" }}>
+                <Button variant="text" style={{ color: "white" }}>
                   Home
                 </Button>
               </NavLink>
@@ -63,7 +84,7 @@ function Dashboard(props) {
                 style={{ textDecoration: "none" }}
                 to="/dashboard/review"
               >
-                <Button variant="text" style={{ color: "inherit" }}>
+                <Button variant="text" style={{ color: "white" }}>
                   Add A Review
                 </Button>
               </NavLink>
@@ -125,20 +146,18 @@ function Dashboard(props) {
           </Box>
         )}
 
-        <ListItem>
-          <Button
-            onClick={logout}
-            variant="text"
-            sx={{ color: "text.primary" }}
-          >
-            <FontAwesomeIcon
-              style={{ paddingRight: "10px" }}
-              icon={faSignOutAlt}
-              size="2x"
-            />
-            Logout
-          </Button>
-        </ListItem>
+        <Box>
+          <ListItem>
+            <Button style={{ color: "white" }} onClick={logout} variant="text">
+              <FontAwesomeIcon
+                style={{ paddingRight: "10px" }}
+                icon={faSignOutAlt}
+                size="2x"
+              />
+              Logout
+            </Button>
+          </ListItem>
+        </Box>
       </List>
     </Box>
   );
@@ -151,6 +170,7 @@ function Dashboard(props) {
       <CssBaseline />
       <AppBar
         position="fixed"
+        style={{ backgroundColor: "rgb(250, 251, 254)", color: "#727CF5" }}
         sx={{
           width: { sm: `calc(100% - ${drawerWidth}px)` },
           ml: { sm: `${drawerWidth}px` },
