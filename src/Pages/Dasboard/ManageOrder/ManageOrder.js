@@ -62,44 +62,69 @@ const ManageOrder = () => {
             <Table responsive striped bordered hover>
               <thead>
                 <tr className="">
-                  <th>#</th>
-                  <th>Ordered BY</th>
+                  <th>Ordered By</th>
+                  <th>Email</th>
                   <th>Product</th>
+                  <th>Placed</th>
                   <th>Status</th>
-                  <th>Manage Order</th>
+                  <th>Price</th>
+                  <th>Manage</th>
                 </tr>
               </thead>
               {orders?.map((order) => (
                 <tbody>
-                  <tr className="py-5 bg-white text-white">
-                    <td>1</td>
+                  <tr className="py-5">
+                    <td>{order.customerName}</td>
+                    <td>{order.email}</td>
                     <td>
-                      Customer Name: {order.customerName} <br />
-                      Country: {order.country}
-                      <br />
-                      Email: {order.email}
-                      <br />
-                      Phone No: {order.phone}
+                      {console.log(order)}
+                      <div>{order.Image}{order.Name}</div>
                     </td>
-                    <td>
-                      Service Price: ${order.Price}
-                      <br />
-                      Service Name: {order.Name}
-                    </td>
-                    {order.status === "Approved" ? (
-                      <td className="text-success">{order.status}</td>
+                    <td>{order.date}</td>
+                    <td className="fw-bold">${order.Price}</td>
+                    {order.status === "Pending" ? (
+                      <td>
+                        <span
+                          style={{
+                            color: "rgb(172, 9, 3)",
+                            margin: "0px",
+                            padding: "5px 8px",
+                            borderRadius: "3px",
+                          }}
+                        >
+                          {order.status}
+                        </span>
+                      </td>
                     ) : (
-                      <td className="text-danger">{order.status}</td>
+                      <td>
+                        <span
+                          style={{
+                            color: "white",
+                            backgroundColor: "rgb(2, 155, 66)",
+                            margin: "0px",
+                            padding: "5px 8px",
+                            borderRadius: "3px",
+                          }}
+                        >
+                          {order.status}
+                        </span>
+                      </td>
                     )}
 
                     <td>
                       <DropdownButton
-                        id="dropdown-basic-button"
-                        title="Manange Order"
+                        size="sm"
+                        variant="secondary"
+                        title="Manage Order"
                       >
                         <Dropdown.Item href="#/action-1">
                           <button
-                            className="btn btn-success"
+                            style={{
+                              color: "white",
+                              border: "0px",
+                              backgroundColor: "green",
+                              borderRadius: "3px",
+                            }}
                             onClick={() => handlePending(order._id, "Approved")}
                           >
                             Approved Order
@@ -107,7 +132,12 @@ const ManageOrder = () => {
                         </Dropdown.Item>
                         <Dropdown.Item href="#/action-2">
                           <button
-                            className="btn btn-success"
+                            style={{
+                              color: "white",
+                              border: "0px",
+                              backgroundColor: "green",
+                              borderRadius: "3px",
+                            }}
                             onClick={() => handlePending(order._id, "Shipping")}
                           >
                             Shipping
@@ -115,14 +145,18 @@ const ManageOrder = () => {
                         </Dropdown.Item>
                         <Dropdown.Item href="#/action-3">
                           <button
-                            className="btn btn-warning "
+                            style={{
+                              color: "white",
+                              border: "0px",
+                              backgroundColor: "red",
+                              borderRadius: "3px",
+                            }}
                             onClick={() => handleDelete(order._id)}
                           >
                             Reject Order
                           </button>
                         </Dropdown.Item>
                       </DropdownButton>
-
                       <br />
                     </td>
                   </tr>

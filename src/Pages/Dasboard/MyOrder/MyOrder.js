@@ -51,7 +51,9 @@ const MyOrder = () => {
             <Table striped bordered hover responsive>
               <thead>
                 <tr className="">
-                  <th>Order No</th>
+                  
+                  <th>Ordered By</th>
+                  <th>Email</th>
                   <th>Product</th>
                   <th>Placed</th>
                   <th>Status</th>
@@ -62,12 +64,11 @@ const MyOrder = () => {
               {orders?.map((order) => (
                 <tbody key={order._id}>
                   <tr className="py-5 bg-white text-white">
-                    <td>{order._id}</td>
-                    <td>${order.Name}</td>
-                    <td>
-                      {console.log(order)}
-                      {order.date}
-                    </td>
+                    
+                    <td>{order.customerName}</td>
+                    <td>{order.email}</td>
+                    <td>{order.Name}</td>
+                    <td>{order.date}</td>
                     {order.status === "Approved" ? (
                       <td>
                         <span
@@ -111,7 +112,7 @@ const MyOrder = () => {
                       </button>
                     </td>
                     <td>
-                      <span className='fw-bold'>${order.Price}</span>
+                      <span className="fw-bold">${order.Price}</span>
                     </td>
                   </tr>
                 </tbody>
