@@ -9,7 +9,7 @@ const MyOrder = () => {
     const {email} = user.email
     const [orders, setOrders] = useState([])
     const [cancel, setCancel] = useState("");
-
+    
     // Get Ordered food by customer email 
     useEffect(() => {
         fetch(`https://lit-forest-28611.herokuapp.com/orders/${user?.email}`)
@@ -45,48 +45,73 @@ const MyOrder = () => {
     return (
       <div className="my-5">
         <h1 className="fw-normal">My Orders</h1>
+
         {orders.length ? (
           <div className="container">
             <Table striped bordered hover responsive>
               <thead>
                 <tr className="">
                   <th>Order No</th>
-                  <th>Adress</th>
-                  <th>Status</th>
                   <th>Product</th>
-                  <th>Manage Order</th>
+                  <th>Placed</th>
+                  <th>Status</th>
+                  <th>Manage</th>
+                  <th>Price</th>
                 </tr>
               </thead>
               {orders?.map((order) => (
                 <tbody key={order._id}>
                   <tr className="py-5 bg-white text-white">
-                    <td>1</td>
+                    <td>{order._id}</td>
+                    <td>${order.Name}</td>
                     <td>
-                      {order.email}
-                      <br />
-                      {order.city},{order.postCode},{order.country}
-                      <br />
+                      {console.log(order)}
                       {order.date}
-                      <br />
-                      Phone:{order.phone}
                     </td>
                     {order.status === "Approved" ? (
-                      <td className="text-primary">{order.status}</td>
+                      <td>
+                        <span
+                          style={{
+                            color: "white",
+                            backgroundColor: "rgb(3, 194, 194)",
+                            margin: "0px",
+                            padding: "5px 8px",
+                            borderRadius: "3px",
+                          }}
+                        >
+                          {order.status}
+                        </span>
+                      </td>
                     ) : (
-                      <td className="text-danger">{order.status}</td>
+                      <td>
+                        <span
+                          style={{
+                            color: "white",
+                            backgroundColor: "rgb(3, 194, 194)",
+                            margin: "0px",
+                            padding: "5px 8px",
+                            borderRadius: "3px",
+                          }}
+                        >
+                          {order.status}
+                        </span>
+                      </td>
                     )}
                     <td>
-                      ${order.Price}
-                      <br />
-                      {order.Name}
-                    </td>
-                    <td>
                       <button
-                        className="btn btn-danger"
+                        style={{
+                          color: "white",
+                          border: "0px",
+                          backgroundColor: "red",
+                          borderRadius: "3px",
+                        }}
                         onClick={() => handleDelete(order._id)}
                       >
                         Cancel Order
                       </button>
+                    </td>
+                    <td>
+                      <span className='fw-bold'>${order.Price}</span>
                     </td>
                   </tr>
                 </tbody>
