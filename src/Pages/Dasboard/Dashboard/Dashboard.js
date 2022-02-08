@@ -57,7 +57,7 @@ function Dashboard(props) {
       }}
     >
       <Typography
-        variant="h3"
+        variant="h4"
         sx={{
           mt: 2,
           mb: 0,

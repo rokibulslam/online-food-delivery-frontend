@@ -1,11 +1,12 @@
 
-import { Alert, Button, CircularProgress, Container, TextField } from '@mui/material';
+import { Alert, Button, CircularProgress, Container, TextField, Typography } from '@mui/material';
 import React, { useState } from 'react';
 
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import useAuth from '../../../Hooks/useAuth';
 import Navigation from '../../Home/Navigation/Navigation';
-
+import google from '../../../Images/google.png'
+import { Box } from '@mui/system';
 
 const Login = () => {
   const [loginData, setLoginData] = useState({});
@@ -33,15 +34,20 @@ const Login = () => {
   return (
     <div>
       <Navigation></Navigation>
-      <Container sx={{ display: "flex" }}>
-        <Container>
+      
+        <Container
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            flexDirection: 'column'
+          }}
+        >
           <h1 className="register-header-text">Login Here</h1>
-
-          {/* <Grid item sx={{ mt: 8 }} xs={12} md={6}> */}
           {!isLoading && (
             <form onSubmit={handleLoginSubmit}>
               <TextField
-                sx={{ width: "75%", m: 1 }}
+                sx={{ width: "100%", my: 1 }}
                 id="standard-basic"
                 label="Your Email"
                 name="email"
@@ -50,7 +56,7 @@ const Login = () => {
                 variant="standard"
               />
               <TextField
-                sx={{ width: "75%", m: 1 }}
+                sx={{ width: "100%", my: 1 }}
                 id="standard-basic"
                 label="Your Password"
                 type="password"
@@ -58,48 +64,48 @@ const Login = () => {
                 onBlur={handleOnBlur}
                 variant="standard"
               />
-
+              <Box>
+                {isLoading && <CircularProgress />}
+                {user?.email && (
+                  <Alert sx={{ width: "100%", my: 1 }} severity="success">
+                    Logged In successfully!
+                  </Alert>
+                )}
+                {authError && (
+                  <Alert sx={{ width: "100%", my: 1 }} severity="error">
+                    {authError}
+                  </Alert>
+                )}
+              </Box>
               <Button
-                sx={{ width: "75%", m: 1 }}
+                sx={{ width: "100%", my: 1 }}
                 type="submit"
                 variant="contained"
               >
                 Login
               </Button>
-
-              <div>
-                {isLoading && <CircularProgress />}
-                {user?.email && (
-                  <Alert sx={{ width: "75%", m: 1 }} severity="success">
-                    Logged In successfully!
-                  </Alert>
-                )}
-                {authError && (
-                  <Alert sx={{ width: "75%", m: 1 }} severity="error">
-                    {authError}
-                  </Alert>
-                )}
-              </div>
             </form>
           )}
-
-          {/* </Grid> */}
-          {/* <Grid item xs={12} md={6}>
-           
-          </Grid> */}
           <Button
-            sx={{ width: "75%", m: 1 }}
+            sx={{ width: "50%", my: 1 }}
             onClick={handleGoogleSign}
-            
             variant="contained"
           >
+            <img
+              style={{ marginRight: "5px" }}
+              height="30px"
+              width="30px"
+              src={google}
+              alt=""
+            />
             Sign In With Google
           </Button>
-          <NavLink style={{ textDecoration: "none" }} to="/register"> <br/>
+          <NavLink style={{ textDecoration: "none" }} to="/register">
+            <br />
             <Button variant="text">Register Here</Button>
           </NavLink>
         </Container>
-      </Container>
+      
     </div>
   );
 };
