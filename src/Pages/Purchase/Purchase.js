@@ -49,6 +49,7 @@ const Purchase = () => {
   const onSubmitOrder = (e) => {
     const order = {
       ...orderData,
+      Image: product.Image,
       date: currentDate,
       status: "Pending",
       Name: Name,

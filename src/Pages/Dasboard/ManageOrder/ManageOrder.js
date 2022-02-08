@@ -6,7 +6,7 @@ import Swal from 'sweetalert2';
 const ManageOrder = () => {
     const [orders, setOrders] = useState([]);
     const [update, setUpdate] = useState("");
-
+    
     useEffect(() => {
         fetch("https://lit-forest-28611.herokuapp.com/orders")
           .then((res) => res.json())
@@ -55,16 +55,17 @@ const ManageOrder = () => {
       }
     };
     return (
-      <div className="my-0 p-5 ">
+      <div className="my-0 p-5 bg-white">
         <div className="container ">
           <div>
             <h1 className="fw-light ">Manage All Orders</h1>
             <Table responsive striped bordered hover>
               <thead>
                 <tr className="">
+                  <th>Product</th>
                   <th>Ordered By</th>
                   <th>Email</th>
-                  <th>Product</th>
+
                   <th>Placed</th>
                   <th>Status</th>
                   <th>Price</th>
@@ -74,12 +75,25 @@ const ManageOrder = () => {
               {orders?.map((order) => (
                 <tbody>
                   <tr className="py-5">
-                    <td>{order.customerName}</td>
-                    <td>{order.email}</td>
                     <td>
                       {console.log(order)}
-                      <div>{order.Image}{order.Name}</div>
+                      <div className="d-flex align-items-center justify-content-between">
+                        <img
+                          style={{
+                            height: "50px",
+                            width: "50px",
+                            borderRadius: "50%",
+                            marginLeft: "3px",
+                          }}
+                          src={order.Image}
+                          alt=""
+                        />
+                        {order.Name}
+                      </div>
                     </td>
+                    <td>{order.customerName}</td>
+                    <td>{order.email}</td>
+
                     <td>{order.date}</td>
                     <td className="fw-bold">${order.Price}</td>
                     {order.status === "Pending" ? (
@@ -110,7 +124,7 @@ const ManageOrder = () => {
                         </span>
                       </td>
                     )}
-
+                    {console.log(order)}
                     <td>
                       <DropdownButton
                         size="sm"

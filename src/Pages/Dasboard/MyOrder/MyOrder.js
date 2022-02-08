@@ -44,17 +44,17 @@ const MyOrder = () => {
 
     return (
       <div className="my-5">
-        <h1 className="fw-normal">My Orders</h1>
+        <h1 className="fw-normal bg-white">My Orders</h1>
 
         {orders.length ? (
           <div className="container">
             <Table striped bordered hover responsive>
               <thead>
                 <tr className="">
-                  
+                  <th>Product</th>
                   <th>Ordered By</th>
                   <th>Email</th>
-                  <th>Product</th>
+
                   <th>Placed</th>
                   <th>Status</th>
                   <th>Manage</th>
@@ -64,10 +64,25 @@ const MyOrder = () => {
               {orders?.map((order) => (
                 <tbody key={order._id}>
                   <tr className="py-5 bg-white text-white">
-                    
+                    <td>
+                      {console.log(order)}
+                      <div className="d-flex align-items-center justify-content-between">
+                        <img
+                          style={{
+                            height: "50px",
+                            width: "50px",
+                            borderRadius: "50%",
+                            marginLeft: "3px",
+                          }}
+                          src={order.Image}
+                          alt=""
+                        />
+                        {order.Name}
+                      </div>
+                    </td>
                     <td>{order.customerName}</td>
                     <td>{order.email}</td>
-                    <td>{order.Name}</td>
+
                     <td>{order.date}</td>
                     {order.status === "Approved" ? (
                       <td>
