@@ -35,6 +35,8 @@ import MakeAdmin from "../MakeAdmin/MakeAdmin";
 import MyOrder from "../MyOrder/MyOrder";
 import { green } from "@mui/material/colors";
 import { height } from "@mui/system";
+import profile from '../../../Images/profile.png'
+
 const drawerWidth = 200;
 
 function Dashboard(props) {
@@ -197,12 +199,39 @@ function Dashboard(props) {
             </Typography>
           )}
           {!admin && (
-            <Typography variant="h6" noWrap component="div">
+            <Typography
+              sx={{ flexGrow: 1 }}
+              variant="h6"
+              noWrap
+              component="div"
+            >
               User Dashboard
             </Typography>
           )}
-          <span >
-            <img style={{height: '45px', width:'45px', borderRadius: '50%', marginRight: '10px'}} src={user.photoURL} alt="" />
+          <span>
+            {user.photoURL ? (
+              <img
+                style={{
+                  height: "45px",
+                  width: "45px",
+                  borderRadius: "50%",
+                  marginRight: "10px",
+                }}
+                src={user.photoURL}
+                alt=""
+              />
+            ) : (
+              <img
+                style={{
+                  height: "45px",
+                  width: "45px",
+                  borderRadius: "50%",
+                  marginRight: "10px",
+                }}
+                src={profile}
+                alt=""
+              />
+            )}
           </span>
           <Box>
             <Typography variant="h6" noWrap component="div">

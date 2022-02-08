@@ -3,7 +3,7 @@ import { Button, Container, Nav, Navbar } from "react-bootstrap";
 import { Link, NavLink } from "react-router-dom";
 import useAuth from "../../../Hooks/useAuth";
 import "./Navigation.css";
-
+import profile from '../../../Images/profile.png'
 
 const Navigation = () => {
   const { user, logout } = useAuth();
@@ -52,17 +52,29 @@ const Navigation = () => {
             {user.email ? (
               <div className="d-flex justify-content-center align-items-center">
                 <span>
-
-                  {<img
-                    style={{
-                      height: "45px",
-                      width: "45px",
-                      borderRadius: "50%",
-                      marginRight: "10px",
-                    }}
-                    src={user.photoURL}
-                    alt=""
-                  />}
+                  {user.photoURL ? (
+                    <img
+                      style={{
+                        height: "45px",
+                        width: "45px",
+                        borderRadius: "50%",
+                        marginRight: "10px",
+                      }}
+                      src={user.photoURL}
+                      alt=""
+                    />
+                  ) : (
+                    <img
+                      style={{
+                        height: "45px",
+                        width: "45px",
+                        borderRadius: "50%",
+                        marginRight: "10px",
+                      }}
+                      src={profile}
+                      alt=""
+                    />
+                  )}
                 </span>
                 <p className="text-white text-decoration-none me-3 mb-lg-0">
                   {user.displayName}
