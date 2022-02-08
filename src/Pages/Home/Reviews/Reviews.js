@@ -26,17 +26,17 @@ const Reviews = () => {
           <Grid container spacing={2}>
             {reviews?.map((review) => (
               <Grid key={review._id} item xs={12} sm={6} md={4}>
-                <Paper elevation={3} sx={{ p: 2, height: 300, width: 300 }}>
+                <Paper elevation={3} sx={{ p: 2, height: 250, width: 300 }}>
                   <Typography
                     sx={{ color: "error.main", fontWeight: 600 }}
                     variant="h5"
                     gutterBottom
                     component="div"
                   >
-                    Reviewed by..
+                    Reviewed By
                   </Typography>
                   <Typography
-                    sx={{ color: "info.main", fontWeight: 600 }}
+                    sx={{ color: "info.main", fontWeight: 400 }}
                     variant="h5"
                     gutterBottom
                     component="div"
