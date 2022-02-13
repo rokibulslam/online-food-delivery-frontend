@@ -65,7 +65,7 @@ const AddProduct = () => {
      <CircularProgress />}
   
         <Container>
-          <h1 className="register-header-text">Add An Apartment</h1>
+          <h1 className="register-header-text">Add A Food</h1>
 
           {/* <Grid item sx={{ mt: 8 }} xs={12} md={6}> */}
 
@@ -137,7 +137,7 @@ const AddProduct = () => {
               type="submit"
               variant="contained"
             >
-              Add Apartment
+              Add Food
             </Button>
           </form>
         </Container>
